@@ -66,7 +66,7 @@ class TodoProvider {
   }
 
   Future<List<Todo>> getAllUser() async {
-    await this.open("user.db");
+    await this.open("todo");
     var all = await db.query(todoTable, columns: [columnId, columnUserid, columnName, columnAge, columnPassword]);
     List<Todo> userList = all.isNotEmpty ? all.map((c) => Todo.formMap(c)).toList() : [];
     return userList;
